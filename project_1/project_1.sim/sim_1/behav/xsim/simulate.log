@@ -1,0 +1,9 @@
+Time resolution is 1 ps
+At time                    0 : input = 0000 - output = 0000
+At time                10000 : input = 0001 - output = 0001
+At time                12000 : input = 0010 - output = 0010
+At time                15000 : input = 0011 - output = 0011
+At time                20000 : input = 0101 - output = 0101
+At time                22000 : input = 1001 - output = 1001
+At time                24000 : input = 1111 - output = 1111
+$stop called at time : 29 ns : File "C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.srcs/sim_1/new/lab1_sim.v" Line 46
