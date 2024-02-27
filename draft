@@ -28,12 +28,12 @@ module Bound_Flash(
 );
 
     reg [3:0] state;
-    reg [2:0] max, min;
+    reg [3:0] max, min;
+    reg [3:0] counter;
     
     parameter INIT = 3'b0000, 
               ON_STATE = 3'b0001, 
               GRADUALLY_ON = 3'b0010, 
-              UPDATE_VALUE = 3'b0011, 
               GRADUALLY_OFF = 3'b0100;
               OFF_STATE = 3'b0101;
 
@@ -44,24 +44,40 @@ module Bound_Flash(
     end else begin
         case (state)
         INIT: begin
-            max = min = 2'b0;
+            max = 4'b1010;
+            min = 4'b0000;
             state = ON_STATE;
         end
+
         ON_STATE: begin
             state = GRADUALLY_ON;
-
+            max += 5;
+            counter = min;
         end
+
         GRADUALLY_ON: begin
-
+            if (counter < max) begin
+                lamps[counter] = 1'b1;
+                counter = counter + 1;
+            end else begin
+                state = OFF_STATE;
+            end
         end
-        UPDATE_VALUE: begin
 
-        end
-        GRADUALLY_OFF: begin
-
-        end
         OFF_STATE: begin
+            state = GRADUALLY_OFF;
+            min+= 5;
+            counter = max;
+        end
 
+        GRADUALLY_OFF: begin
+            if (flick == 1'b1)
+            if (counter > min) begin
+                lamps[counter] = 1'b0;
+                counter -= 1;
+            end else begin
+                state = ON_STATE;
+            end
         end
         endcase
     end
