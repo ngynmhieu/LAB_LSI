@@ -30,28 +30,36 @@ module Bound_Flash(
     reg [3:0] state;
     reg [3:0] max, min;
     reg [3:0] counter;
+    reg [4:0] lampstate;
     
     parameter INIT = 3'b0000, 
               ON_STATE = 3'b0001, 
               GRADUALLY_ON = 3'b0010, 
-              GRADUALLY_OFF = 3'b0100;
+              GRADUALLY_OFF = 3'b0100,
               OFF_STATE = 3'b0101;
 
    always @(posedge clk, negedge reset, posedge flick)
-    if (reset == 1'b0) begin
+    if (reset == 1'b0) begin // Low active reset = 0
         state = INIT;
-        lamps = 16'b0;
-    end else begin
+    end else begin // Reset = 1
         case (state)
-        INIT: begin
-            max = 4'b1010;
+        INIT: begin  // initial state
+            max = 4'b0000;
             min = 4'b0000;
-            state = ON_STATE;
+            lamps = 16'b0;
+            lampstate = 0;
+            if (flick == 1'b1) state = ON_STATE;
         end
 
         ON_STATE: begin
             state = GRADUALLY_ON;
-            max += 5;
+            if (lampstate == 0) begin
+                max = 15; min = 0;
+            end else if (lampstate == 2) begin
+                max = 10; min = 5;
+            end else if (lampstate == 4) begin
+                max = 5; min = 0;
+            end
             counter = min;
         end
 
@@ -61,29 +69,35 @@ module Bound_Flash(
                 counter = counter + 1;
             end else begin
                 state = OFF_STATE;
+                lampstate ++;
             end
         end
 
         OFF_STATE: begin
             state = GRADUALLY_OFF;
-            min+= 5;
+            if (lampstate == 1) begin
+                max = 15; min = 5;
+            end else if (lampstate == 3) begin
+                max = 10; min = 0;
+            end else if (lampstate == 5) begin
+                max = 5; min = 0;
+            end
             counter = max;
         end
 
         GRADUALLY_OFF: begin
-            if (flick == 1'b1)
-            if (counter > min) begin
-                lamps[counter] = 1'b0;
-                counter -= 1;
-            end else begin
-                state = ON_STATE;
+            if (flick == 1 && lampstate != 5) state = OFF_STATE; // additional condition
+            else begin
+                if (counter > min) begin
+                    lamps[counter] = 1'b0;
+                    counter -= 1;
+                end else begin
+                    state = ON_STATE;
+                    lampstate ++;
+                    if (lampstate > 5) lampstate <= 0;
+                end
             end
         end
         endcase
     end
-    
-        
-      
-        
-
 endmodule
