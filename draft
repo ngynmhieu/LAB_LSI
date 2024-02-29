@@ -64,7 +64,7 @@ module Bound_Flash(
             end else if (lampstate == 6) begin
                 lamps = 16'b1;
                 state = OFF_STATE;
-                lampstate ++;
+                lampstate = lampstate + 1;
             end
             counter = min;
         end
@@ -72,7 +72,7 @@ module Bound_Flash(
         GRADUALLY_ON: begin
             if (flick == 1 && (lampstate == 2 || lampstate == 4)) begin // kickback point
                 kickback = 1;
-                lampstate -= 1;
+                lampstate = lampstate - 1;
                 state = OFF_STATE;
             end else begin
                 if (counter < max) begin
@@ -80,7 +80,7 @@ module Bound_Flash(
                     counter = counter + 1;
                 end else begin
                     state = OFF_STATE;
-                    lampstate ++;
+                    lampstate = lampstate + 1;
                 end
             end
         end
@@ -94,7 +94,7 @@ module Bound_Flash(
             end else if (lampstate == 5) begin
                 max = 15; min = 0;
             end else if (lampstate == 7) begin
-                lamps = 16'0;
+                lamps = 16'b0;
                 state = INIT;
             end
             if (kickback == 0) counter = max;
@@ -104,10 +104,10 @@ module Bound_Flash(
         GRADUALLY_OFF: begin
             if (counter > min) begin
                 lamps[counter] = 1'b0;
-                counter -= 1;
+                counter = counter - 1;
             end else begin
                 state = ON_STATE;
-                lampstate ++;
+                lampstate = lampstate + 1;
             end
         end
         endcase
