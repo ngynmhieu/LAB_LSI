@@ -22,14 +22,13 @@
 `timescale 1ns/10ps // time-unit = 1 ns, precision = 10 ps
 module Bound_Flash_tb;
 
-reg clk, reset, flick, lampstate;
+reg clk, reset, flick;
 wire [15:0] lamps;
 // Unit under test (UUT)/Design under test (DUT)
 Bound_Flash UUT (
     .clk (clk),
     .reset (reset),
     .flick (flick),
-    .lampstate (lampstate),
     .lamps (lamps)
 );
 // Command to print simulation signal values
