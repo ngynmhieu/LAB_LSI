@@ -44,16 +44,18 @@ initial begin
 end
 
 initial begin
-    reset = 1'b0; // Active low reset
-    #10; // Hold reset for 10 ns
-    reset = 1'b1;
+    reset = 1'b0; 
+    #1; reset = 1'b1;
 
-    // Apply various test patterns for flick signal
-    #10; flick = 1'b0; // No flick
-    #10; flick = 1'b1; // Early flick during ON_STATE
+    #100; flick = 1'b1; //first flick
     #1; flick = 1'b0;
-    #200; flick = 1'b0; // No flick
-    #200; flick = 1'b1; // Early flick during GRADUALLY_ON
+    #15; flick = 1'b1; //second flick
+    #1; flick = 1'b0;
+    #27; flick = 1'b1; //third flick
+    #1; flick = 1'b0;
+    #34; flick = 1'b1; //third flick
+    #5; flick = 1'b0;
+    
     #200; $finish;
 end
 endmodule
