@@ -49,12 +49,6 @@ initial begin
 
     #100; flick = 1'b1; //first flick
     #1; flick = 1'b0;
-    #15; flick = 1'b1; //second flick
-    #1; flick = 1'b0;
-    #27; flick = 1'b1; //third flick
-    #1; flick = 1'b0;
-    #34; flick = 1'b1; //third flick
-    #5; flick = 1'b0;
     
     #200; $finish;
 end
