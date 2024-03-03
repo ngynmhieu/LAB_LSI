@@ -20,7 +20,7 @@
 
 
 `timescale 1ns/10ps // time-unit = 1 ns, precision = 10 ps
-module Bound_Flash_tb;
+module reset_tb;
 
 reg clk, reset, flick;
 wire [15:0] lamps;
@@ -45,10 +45,25 @@ end
 
 initial begin
     reset = 1'b0; 
+    flick = 1'b0;
     #1; reset = 1'b1;
 
     #100; flick = 1'b1; //first flick
     #1; flick = 1'b0;
+
+    #30; reset = 1'b0;
+    #1; reset = 1'b1;
+    #1; flick = 1'b1; //first flick
+    #1; flick = 1'b0;
+
+
+    #20; reset = 1'b0;
+    #1; reset = 1'b1;
+    #1; flick = 1'b1; //first flick
+    #1; flick = 1'b0;
+
+    #300; reset = 1'b0;
+    #1; reset = 1'b1;
     
     #200; $finish;
 end
