@@ -1,7 +1,7 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
 "../../../../project_1.srcs/sources_1/new/lab1_1.v" \
-"../../../../project_1.srcs/sim_1/new/flick_at_kb.v" \
+"../../../../project_1.srcs/sim_1/new/reset_at_flick.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

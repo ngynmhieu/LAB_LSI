@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Tue Mar  5 12:54:56 2024
+# Process ID: 20800
+# Current directory: C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.runs/synth_1
+# Command line: vivado.exe -log Bound_Flash.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Bound_Flash.tcl
+# Log file: C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.runs/synth_1/Bound_Flash.vds
+# Journal file: C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.runs/synth_1\vivado.jou
+# Running On: LaptopcuaHieu, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 4, Host memory: 8412 MB
+#-----------------------------------------------------------
+source Bound_Flash.tcl -notrace
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 455.246 ; gain = 181.316
+WARNING: [Vivado 12-9135] Ignoring repo path (C:/Users/Minh C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.runs/synth_1/Hieu/AppData/Roaming/Xilinx/Vivado/2023.2/xhub/board_store/xilinx_board_store) because it contains no board files
+ERROR: [Board 49-71] The board_part definition was not found for digilentinc.com:arty-z7-20:part0:1.0. The project's board_part property was not set, but the project's part property was set to xc7z020clg400-1. Valid board_part values can be retrieved with the 'get_board_parts' Tcl command. Check if board.repoPaths parameter is set and the board_part is installed from the tcl app store.
+INFO: [Common 17-206] Exiting Vivado at Tue Mar  5 12:55:06 2024...

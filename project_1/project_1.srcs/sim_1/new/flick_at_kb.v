@@ -53,8 +53,13 @@ initial begin
 
     #20; flick = 1'b1;
     #10; flick = 1'b0;
+    #11; flick = 1'b1;
+    #40; flick = 1'b0;
+
     #20; flick = 1'b1;
-    #5; flick = 1'b0;
+    #90; flick = 1'b0;
+    #20; flick = 1'b1;
+    #100; flick = 1'b0;
     #10; flick = 1'b1;
     #1; flick = 1'b0;
 

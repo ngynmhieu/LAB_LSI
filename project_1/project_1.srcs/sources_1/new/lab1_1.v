@@ -42,6 +42,7 @@ module Bound_Flash(
    always @(posedge clk, negedge reset, posedge flick)
    if (reset == 1'b0) begin // Low active reset = 0
        state = INIT;
+       lamps = 16'b0;
    end else begin // Reset = 1
        case (state)
        INIT: begin
@@ -77,7 +78,7 @@ module Bound_Flash(
         end
         if (flick == 1 && (counter == 5 || counter == 10) && lampstate != 1) begin
             kickback = 1;
-            lampstate = lampstate -1 ;
+            lampstate = lampstate - 1 ;
             state = OFF_STATE;
         end
         counter = counter + 1;
