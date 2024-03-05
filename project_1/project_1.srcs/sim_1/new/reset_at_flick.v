@@ -20,7 +20,7 @@
 
 
 `timescale 1ns/10ps // time-unit = 1 ns, precision = 10 ps
-module flick_at_kb_tb;
+module reset_at_flick;
 
 reg clk, reset, flick;
 wire [15:0] lamps;
@@ -62,7 +62,8 @@ initial begin
 
     #20; flick = 1'b1;
     #90; flick = 1'b0;
-    #20; flick = 1'b1;
+
+    #10; flick = 1'b1;
     #100; flick = 1'b0;
     #10; flick = 1'b1;
     #1; flick = 1'b0;

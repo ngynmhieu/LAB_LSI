@@ -6,5 +6,5 @@ C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.sim/sim_1/behav/
 C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.srcs/sim_1/new/flick.v,1709384122,verilog,,,,Bound_Flash_tb2,,,,,,,,
 C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.srcs/sim_1/new/flick_at_non_kb.v,1709385526,verilog,,,,flick_at_non_kb_tb,,,,,,,,
 C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.srcs/sim_1/new/reset.v,1709382644,verilog,,,,Bound_Flash_tb,,,,,,,,
-C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.srcs/sim_1/new/reset_at_flick.v,1709648859,verilog,,,,flick_at_kb_tb,,,,,,,,
-C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.srcs/sources_1/new/lab1_1.v,1709646850,verilog,,C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.srcs/sim_1/new/reset_at_flick.v,,Bound_Flash,,,,,,,,
+C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.srcs/sim_1/new/reset_at_flick.v,1709652859,verilog,,,,reset_at_flick,,,,,,,,
+C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.srcs/sources_1/new/lab1_1.v,1709652687,verilog,,C:/Users/Minh Hieu/OneDrive/Desktop/LAB_LSI/project_1/project_1.srcs/sim_1/new/reset_at_flick.v,,Bound_Flash,,,,,,,,

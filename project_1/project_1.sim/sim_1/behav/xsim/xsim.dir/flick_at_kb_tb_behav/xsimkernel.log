@@ -2,3 +2,6 @@ Running: xsim.dir/flick_at_kb_tb_behav/xsimk.exe -simmode gui -wdb flick_at_kb_t
 Design successfully loaded
 Design Loading Memory Usage: 8456 KB (Peak: 8456 KB)
 Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 9108 KB (Peak: 9108 KB)
+Simulation CPU Usage: 15 ms

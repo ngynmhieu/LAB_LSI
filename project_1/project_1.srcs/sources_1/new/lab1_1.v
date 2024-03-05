@@ -72,14 +72,14 @@ module Bound_Flash(
 
        GRADUALLY_ON: begin
         lamps[counter] = 1'b1;
-        if (counter == max) begin
-            state = OFF_STATE;
-            lampstate = lampstate + 1;
-        end
         if (flick == 1 && (counter == 5 || counter == 10) && lampstate != 1) begin
             kickback = 1;
             lampstate = lampstate - 1 ;
             state = OFF_STATE;
+        end
+        if (counter == max) begin
+            state = OFF_STATE;
+            lampstate = lampstate + 1;
         end
         counter = counter + 1;
        end
